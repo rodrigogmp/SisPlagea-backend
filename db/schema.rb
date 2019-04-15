@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(version: 2019_04_09_141335) do
 
   create_table "studants", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
-    t.string "category"
+    t.integer "category"
     t.text "abstract"
     t.integer "start_year"
     t.integer "end_year"
