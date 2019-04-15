@@ -9,7 +9,7 @@ Descrição do sistema: O sistema deverá prover uma maneira para gestão das at
 um docente/pesquisador.
 ● O site deverá permitir que o professor adicione alunos que o mesmo orienta. As
 categorias dos alunos são: iniciação científica, mestrado, doutorado e
-pós­doutorado.
+pós­doutorado.\n
 ● O professor poderá adicionar projetos de pesquisa. Além disso, vincular alunos, já
 cadastrados, nestes projetos de pesquisa.
 ● O site deverá permitir cadastrar informações sobre o aluno previamente
