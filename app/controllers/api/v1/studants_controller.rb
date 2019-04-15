@@ -1,5 +1,5 @@
 class Api::V1::StudantsController < ApplicationController
-    before_action :authenticate_user!, except: [:create]
+    before_action :authenticate_api_v1_user!
 
     def create
         @studant = Studant.new params_studant
