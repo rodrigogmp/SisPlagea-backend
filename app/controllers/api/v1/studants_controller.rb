@@ -11,6 +11,6 @@ class Api::V1::StudantsController < ApplicationController
     private
 
     def params_studant
-        params.permit(:name,:category,:abstract,:start_year,:end_year)
+        params.permit(:name,:category,:abstract,:start_year,:end_year, :photo)
     end
 end

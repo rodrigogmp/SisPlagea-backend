@@ -20,6 +20,8 @@ gem 'devise_token_auth'
 
 gem 'jbuilder', '~> 2.5'
 
+gem 'carrierwave'
+
 
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'

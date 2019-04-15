@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 2019_04_09_141335) do
     t.string "name"
     t.integer "category"
     t.text "abstract"
+    t.string "photo"
     t.integer "start_year"
     t.integer "end_year"
     t.datetime "created_at", null: false

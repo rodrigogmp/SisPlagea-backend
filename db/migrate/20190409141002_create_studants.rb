@@ -4,6 +4,7 @@ class CreateStudants < ActiveRecord::Migration[5.2]
       t.string :name
       t.integer :category
       t.text :abstract
+      t.string :photo
       t.integer :start_year
       t.integer :end_year
 

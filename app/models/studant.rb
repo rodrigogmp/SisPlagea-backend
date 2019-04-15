@@ -5,6 +5,9 @@ class Studant < ApplicationRecord
   #Validations
   validates :name, presence: true
 
+  #Uploader
+  mount_uploader :photo, ImageUploader
+
   enum category:[:scientific_research,:masters_degree,:doctorate_degree,:post_doctoral]
 
 end
