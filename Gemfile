@@ -18,6 +18,9 @@ gem 'puma', '~> 3.11'
 
 gem 'devise_token_auth'
 
+gem 'jbuilder', '~> 2.5'
+
+
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 
