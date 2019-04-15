@@ -18,7 +18,7 @@ um docente/pesquisador.<br>
 ● O site deverá ter uma página de contato com o professor.<br>
 ● O site deverá ter uma página para permitir adicionar informações sobre o professor, tais como sua formação, sala, telefone, e-mail, etc.<br>
 
-Como rodar o projeto:<br>
+#Como rodar o projeto:<br>
 Pré-requisitos:<br>
   ● Possuir um usuário Mysql com privilégios equivalentes ao root.<br>
   ● Possuir instalados o ruby e o rails. Recomendamos o tutorial: https://gorails.com/setup/ubuntu/18.04 <br>
