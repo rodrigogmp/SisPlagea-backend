@@ -4,7 +4,7 @@ class Api::V1::StudantsController < Api::V1::BaseController
     def create
         @studant = Studant.new params_studant
         unless @studant.save
-            render json: {errors: ["Erro ao adicionar estudante."]}, status: :bad_request
+            render json: {errors: @studant.errors.full_messages}, status: :bad_request
         end
     end
 

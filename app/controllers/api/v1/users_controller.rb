@@ -4,7 +4,7 @@ class Api::V1::UsersController < Api::V1::BaseController
     def create
         @user = User.create sign_up_params
         unless @user.save
-            render json: {errors: ["Erro ao adicionar Usuario."]}, status: :bad_request
+            render json: {errors: @user.errors.full_messages}, status: :bad_request
         end
     end
 
