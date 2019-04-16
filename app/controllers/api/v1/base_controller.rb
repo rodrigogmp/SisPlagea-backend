@@ -29,19 +29,19 @@ class Api::V1::BaseController < ApplicationController
 		raise ActionController::ParameterMissing.new(missing_params) if missing_params.any?
   end
     
-    private
+	private
 
-			def list_to_comma_string(list)
-				if list.is_a? Array
-					s = ""
-					list.each do |l|
-						s+= " " + l.to_s + ","
-					end
-					s[0] = ""
-					s[s.length() -1] = "."
-					return s
-				else
-					list.to_s
+		def list_to_comma_string(list)
+			if list.is_a? Array
+				s = ""
+				list.each do |l|
+					s+= " " + l.to_s + ","
 				end
-			end 
+				s[0] = ""
+				s[s.length() -1] = "."
+				return s
+			else
+				list.to_s
+			end
+		end 
 end
