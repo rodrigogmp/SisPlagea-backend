@@ -1,4 +1,5 @@
 class Studant < ApplicationRecord
+  acts_as_paranoid
   #Associations
   belongs_to :project, optional: true
 
