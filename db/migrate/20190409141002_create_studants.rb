@@ -7,6 +7,7 @@ class CreateStudants < ActiveRecord::Migration[5.2]
       t.string :photo
       t.integer :start_year
       t.integer :end_year
+      t.datetime :deleted_at
 
       t.timestamps
     end

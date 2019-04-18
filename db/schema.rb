@@ -15,6 +15,7 @@ ActiveRecord::Schema.define(version: 2019_04_09_141335) do
   create_table "projects", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.datetime "deleted_at"
   end
 
   create_table "studants", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -24,6 +25,7 @@ ActiveRecord::Schema.define(version: 2019_04_09_141335) do
     t.string "photo"
     t.integer "start_year"
     t.integer "end_year"
+    t.datetime "deleted_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "project_id"
@@ -41,6 +43,7 @@ ActiveRecord::Schema.define(version: 2019_04_09_141335) do
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
     t.string "unconfirmed_email"
+    t.datetime "deleted_at"
     t.string "name"
     t.string "photo"
     t.string "email"
