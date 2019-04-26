@@ -24,5 +24,13 @@ Pré-requisitos:<br>
   ● Possuir instalados o ruby e o rails. Recomendamos o tutorial: https://gorails.com/setup/ubuntu/18.04 <br>
   ● Criar um arquivo dentro do diretorio /config chamado database.yml, copiar todo o conteudo do arquivo database.yml.example para o arquivo database.yml. Substituir o username pelo seu usuario Mysql, substituir o password pelo seu password mysql. <br>
   ● Rodar em sequencia os comandos: bundle install(instala todas as dependencias do projeto), rails db:create(cria o banco), rails db:migrate(cria o esquema). <br>
-  ● Rodar o comando rails server ou rails s para rodar a aplicação.
+  ● Rodar o comando rails server ou rails s para rodar a aplicação.<br>
+  
+ Justificativa de tecnologia:
+  Optamos pelo framework Ruby on Rails por alguns motivos:
+    ● Um integrante do grupo já possui familiaridade com o framework, tornando possível auxiliar os outros no aprendizado da        tecnologia.
+    ● A curva de aprendizado do RoR é pequena, portanto, é possível que todos os integrantes contribuiam para o desenvolvimento      do backend mesmo sem conhecimento prévio da tecnologia.
+    ● O framework possibilita construir aplicações web de forma rápida, focando apenas em conceitos realmente importantes para a    construção da aplicação.
+    ● O framwork utiliza o padrão MVC, sugerido pelo professor.
+    ● O RoR é bastante utilizado por empresas no desenvolvimento de aplicações web pela sua facilidade de aprendizado e a enorme    quantidade de ferramentas que o framework disponibiliza para que essa construção seja rápida, abstraindo conceitos já            conhecidos pelos desenvolvedores, como por exemplo consultas em bancos de dados. Isso contribui para que todos tenham um        contato com uma ferramenta utilizada no mercado de trabalho por empresase aprendam muito sobre desenvolvimento web em geral.
   
