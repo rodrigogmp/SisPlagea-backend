@@ -32,5 +32,6 @@ Pré-requisitos:<br>
     ● A curva de aprendizado do RoR é pequena, portanto, é possível que todos os integrantes contribuiam para o desenvolvimento      do backend mesmo sem conhecimento prévio da tecnologia.<br>
     ● O framework possibilita construir aplicações web de forma rápida, focando apenas em conceitos realmente importantes para a    construção da aplicação.<br>
     ● O framwork utiliza o padrão MVC, sugerido pelo professor.<br>
-    ● O RoR é bastante utilizado por empresas no desenvolvimento de aplicações web pela sua facilidade de aprendizado e a enorme    quantidade de ferramentas que o framework disponibiliza para que essa construção seja rápida, abstraindo conceitos já            conhecidos pelos desenvolvedores, como por exemplo consultas em bancos de dados. Isso contribui para que todos tenham um        contato com uma ferramenta utilizada no mercado de trabalho por empresase aprendam muito sobre desenvolvimento web em geral.
+    ● O RoR é bastante utilizado por empresas no desenvolvimento de aplicações web pela sua facilidade de aprendizado e a enorme    quantidade de ferramentas que o framework disponibiliza para que essa construção seja rápida, abstraindo conceitos já            conhecidos pelos desenvolvedores, como por exemplo consultas em bancos de dados. Isso contribui para que todos tenham um        contato com uma ferramenta utilizada no mercado de trabalho por empresase aprendam muito sobre desenvolvimento web em geral.<br>
+Mais vantagens do RoR: https://becode.com.br/por-que-aprender-ruby-on-rails/
   
