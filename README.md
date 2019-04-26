@@ -33,5 +33,7 @@ Pré-requisitos:<br>
     ● O framework possibilita construir aplicações web de forma rápida, focando apenas em conceitos realmente importantes para a    construção da aplicação.<br>
     ● O framwork utiliza o padrão MVC, sugerido pelo professor.<br>
     ● O RoR é bastante utilizado por empresas no desenvolvimento de aplicações web pela sua facilidade de aprendizado e a enorme    quantidade de ferramentas que o framework disponibiliza para que essa construção seja rápida, abstraindo conceitos já            conhecidos pelos desenvolvedores, como por exemplo consultas em bancos de dados. Isso contribui para que todos tenham um        contato com uma ferramenta utilizada no mercado de trabalho por empresase aprendam muito sobre desenvolvimento web em geral.<br>
+    ● Optamos por utilizar o SGBD MySql, por ser um SGBD que todos do grupo já possui alguma familiaridade, apesar de, para o      Rails, o SGBD não fazer muita diferença no momento de desenvolvimento de aplicações.<br>
+    ● Utilizaremos o Postman para fazer a documentação da API, facilitando o uso dos endpoints pelo frontend. O Postman é uma      ferramenta utilizada em larga escala por grande parte dos desenvolvedores(backend, frontend, mobile) que facilita muito na      integração do backend com o frontend.
 Mais vantagens do RoR: https://becode.com.br/por-que-aprender-ruby-on-rails/
   
