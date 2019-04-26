@@ -1,14 +1,15 @@
 class Studant < ApplicationRecord
   acts_as_paranoid
+
   #Associations
-  belongs_to :project, optional: true
+  has_many :participants, dependent: :destroy
+  has_many :study_groups, through: :participants
+  has_one :attachment
+  belongs_to :project
 
   #Validations
-  validates :name, presence: true
-
-  #Uploader
-  mount_uploader :photo, ImageUploader
-
+  validates :name, :category, presence: true
+  #types
   enum category:[:scientific_research,:masters_degree,:doctorate_degree,:post_doctoral]
 
 end
