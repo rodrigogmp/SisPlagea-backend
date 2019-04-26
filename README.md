@@ -26,11 +26,11 @@ Pré-requisitos:<br>
   ● Rodar em sequencia os comandos: bundle install(instala todas as dependencias do projeto), rails db:create(cria o banco), rails db:migrate(cria o esquema). <br>
   ● Rodar o comando rails server ou rails s para rodar a aplicação.<br>
   
- Justificativa de tecnologia:
-  Optamos pelo framework Ruby on Rails por alguns motivos:
-    ● Um integrante do grupo já possui familiaridade com o framework, tornando possível auxiliar os outros no aprendizado da        tecnologia.
-    ● A curva de aprendizado do RoR é pequena, portanto, é possível que todos os integrantes contribuiam para o desenvolvimento      do backend mesmo sem conhecimento prévio da tecnologia.
-    ● O framework possibilita construir aplicações web de forma rápida, focando apenas em conceitos realmente importantes para a    construção da aplicação.
-    ● O framwork utiliza o padrão MVC, sugerido pelo professor.
+ Justificativa de tecnologia:<br>
+  Optamos pelo framework Ruby on Rails por alguns motivos:<br>
+    ● Um integrante do grupo já possui familiaridade com o framework, tornando possível auxiliar os outros no aprendizado da        tecnologia.<br>
+    ● A curva de aprendizado do RoR é pequena, portanto, é possível que todos os integrantes contribuiam para o desenvolvimento      do backend mesmo sem conhecimento prévio da tecnologia.<br>
+    ● O framework possibilita construir aplicações web de forma rápida, focando apenas em conceitos realmente importantes para a    construção da aplicação.<br>
+    ● O framwork utiliza o padrão MVC, sugerido pelo professor.<br>
     ● O RoR é bastante utilizado por empresas no desenvolvimento de aplicações web pela sua facilidade de aprendizado e a enorme    quantidade de ferramentas que o framework disponibiliza para que essa construção seja rápida, abstraindo conceitos já            conhecidos pelos desenvolvedores, como por exemplo consultas em bancos de dados. Isso contribui para que todos tenham um        contato com uma ferramenta utilizada no mercado de trabalho por empresase aprendam muito sobre desenvolvimento web em geral.
   
