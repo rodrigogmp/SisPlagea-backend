@@ -9,6 +9,9 @@ class Studant < ApplicationRecord
 
   #Validations
   validates :name, :category, presence: true
+
+  accepts_nested_attributes_for :project
+  
   #types
   enum category:[:scientific_research,:masters_degree,:doctorate_degree,:post_doctoral]
 
