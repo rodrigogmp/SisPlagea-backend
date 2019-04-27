@@ -3,6 +3,7 @@ class CreateAttachments < ActiveRecord::Migration[5.2]
     create_table :attachments do |t|
       t.integer :studant_id
       t.integer :subject_id
+      t.integer :publication_id
       t.string :file_to_upload
       t.timestamps
     end
