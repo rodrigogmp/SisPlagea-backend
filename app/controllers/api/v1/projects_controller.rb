@@ -1,6 +1,6 @@
 class Api::V1::ProjectsController < Api::V1::BaseController
     before_action :authenticate_api_v1_user!
-    before_action :set_project, only:[:show]
+    before_action :set_project, only:[:show,:update]
 
     def index
         @projects = Project.all
@@ -11,6 +11,13 @@ class Api::V1::ProjectsController < Api::V1::BaseController
 
     def create
         @project = Project.new params_project
+        unless @project.save
+            render json: {errors: @project.errors.full_messages}, status: :bad_request
+        end
+    end
+
+    def update
+        @project.update params_project
         unless @project.save
             render json: {errors: @project.errors.full_messages}, status: :bad_request
         end
