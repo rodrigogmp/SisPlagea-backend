@@ -1,11 +1,12 @@
-# README
+# SisPlagea
 
 Desenvolvimento de plataforma de gestão de atividades para docente/pesquisador
 O objetivo desse projeto é a implementação de um sistema WEB que irá realizar a gestão
 de atividades para docente/pesquisador. Tanto o frontend quanto o backend do sistema
 deverá ser implementado.
 
-Descrição do sistema: O sistema deverá prover uma maneira para gestão das atividades de
+## Descrição do sistema
+O sistema deverá prover uma maneira para gestão das atividades de
 um docente/pesquisador.<br>
 ● O site deverá permitir que o professor adicione alunos que o mesmo orienta. As categorias dos alunos são: iniciação científica, mestrado, doutorado e pós-doutorado. <br>
 ● O professor poderá adicionar projetos de pesquisa. Além disso, vincular alunos, já cadastrados, nestes projetos de pesquisa.<br>
@@ -18,7 +19,7 @@ um docente/pesquisador.<br>
 ● O site deverá ter uma página de contato com o professor.<br>
 ● O site deverá ter uma página para permitir adicionar informações sobre o professor, tais como sua formação, sala, telefone, e-mail, etc.<br>
 
-Como rodar o projeto:<br>
+## Como rodar o projeto
 Pré-requisitos:<br>
   ● Possuir um usuário Mysql com privilégios equivalentes ao root.<br>
   ● Possuir instalados o ruby e o rails. Recomendamos o tutorial: https://gorails.com/setup/ubuntu/18.04 <br>
@@ -26,7 +27,7 @@ Pré-requisitos:<br>
   ● Rodar em sequencia os comandos: bundle install(instala todas as dependencias do projeto), rails db:create(cria o banco), rails db:migrate(cria o esquema). <br>
   ● Rodar o comando rails server ou rails s para rodar a aplicação.<br>
   
- Justificativa de tecnologia:<br>
+ ## Justificativa de tecnologia
   Optamos pelo framework Ruby on Rails por alguns motivos:<br>
     ● Um integrante do grupo já possui familiaridade com o framework, tornando possível auxiliar os outros no aprendizado da        tecnologia.<br>
     ● A curva de aprendizado do RoR é pequena, portanto, é possível que todos os integrantes contribuiam para o desenvolvimento      do backend mesmo sem conhecimento prévio da tecnologia.<br>
