@@ -1,6 +1,7 @@
 class Api::V1::ProjectsController < Api::V1::BaseController
     before_action :authenticate_api_v1_user!
-    before_action :set_project, only:[:show,:update]
+    before_action :set_project, only:[:show,:update,:link_studant]
+    before_action :set_studant, only:[:link_studant]
 
     def index
         @projects = Project.all
@@ -23,6 +24,16 @@ class Api::V1::ProjectsController < Api::V1::BaseController
         end
     end
 
+    def link_studant
+        @studant.update(project_id: @project.id)
+        unless @studant.save
+            render json: {errors: @project.errors.full_messages}, status: :bad_request
+        else
+            render json:{message: "O aluno foi adicionado ao projeto."}, status: :ok
+
+        end
+    end
+
     private
 
     def params_project
@@ -31,6 +42,10 @@ class Api::V1::ProjectsController < Api::V1::BaseController
 
     def set_project
         @project = Project.find(params[:id])
+    end
+
+    def set_studant
+        @studant = Studant.find(params[:studant_id])
     end
 
 end
