@@ -11,6 +11,8 @@ class Studant < ApplicationRecord
   validates :name, :category, presence: true
 
   accepts_nested_attributes_for :project
+
+  mount_uploader :photo, ImageUploader
   
   #types
   enum category:[:scientific_research,:masters_degree,:doctorate_degree,:post_doctoral]
