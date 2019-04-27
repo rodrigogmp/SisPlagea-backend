@@ -1,5 +1,4 @@
 class Attachment < ApplicationRecord
-    belongs_to :studant
     belongs_to :subject
     belongs_to :publication
 
@@ -9,9 +8,8 @@ class Attachment < ApplicationRecord
     #Uploader
     mount_uploader :file_to_upload, ImageUploader
 
-    def check_id
-        byebug
-        if self.studant_id.present? || self.subject_id.present? || self.publication_id.present?
+    def check_if
+        if self.subject_id.present? || self.publication_id.present?
             return true
         end
     end
