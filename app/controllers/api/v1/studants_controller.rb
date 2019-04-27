@@ -33,5 +33,4 @@ class Api::V1::StudantsController < Api::V1::BaseController
     def set_studant
         @studant = Studant.find(params[:id])
     end
-    # product_applications_attributes[][name]
 end
