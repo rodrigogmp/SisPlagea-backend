@@ -7,6 +7,7 @@ Rails.application.routes.draw do
       resources :subjects do
         member do
           post :upload
+          get :materials
         end
       end
       resources :projects do

@@ -1,6 +1,6 @@
 class Api::V1::SubjectsController < Api::V1::BaseController
     before_action :authenticate_api_v1_user!
-    before_action :set_subject, only:[:upload]
+    before_action :set_subject, only:[:upload,:materials]
 
     def create
         @subject = Subject.create(params_subject)
@@ -19,6 +19,10 @@ class Api::V1::SubjectsController < Api::V1::BaseController
         else
             render json: {error: "Erro ao adicionar arquivo."}, status: :bad_request
         end
+    end
+
+    def materials
+        @materials = @subject.attachments
     end
 
     private
