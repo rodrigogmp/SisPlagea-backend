@@ -25,7 +25,6 @@ class Api::V1::ProjectsController < Api::V1::BaseController
     end
 
     def link_participant
-        byebug
         unless @project.studant_already_subscribed?(@studant)
             if @project.link_participant(params_link_participant)
                 render json: {message: "O aluno foi adicionado com sucesso ao projeto."}, status: 201 #ok
@@ -52,7 +51,7 @@ class Api::V1::ProjectsController < Api::V1::BaseController
     end
 
     def params_link_participant
-        params.permit(:studant_id, :start_year, :end_year)
+        params.permit(:studant_id, :start_year, :end_year, :file_to_upload)
     end
 
 end
