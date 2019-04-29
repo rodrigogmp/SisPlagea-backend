@@ -37,7 +37,7 @@ class Api::V1::ProjectsController < Api::V1::BaseController
     private
 
     def params_project
-        params.permit(:name,:abstract,:start_year,:end_year)
+        params.permit(:name,:abstract)
     end
 
     def set_project

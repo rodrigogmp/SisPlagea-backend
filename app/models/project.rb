@@ -3,5 +3,5 @@ class Project < ApplicationRecord
     has_many :project_participants, dependent: :destroy
     has_many :projects, through: :project_participants
 
-    validates :name, :abstract, :start_year, presence: true
+    validates :name, :abstract, presence: true
 end
