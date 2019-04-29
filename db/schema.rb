@@ -13,9 +13,7 @@
 ActiveRecord::Schema.define(version: 2019_04_29_102536) do
 
   create_table "attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.integer "studant_id"
     t.integer "subject_id"
-    t.integer "publication_id"
     t.string "file_to_upload"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -71,6 +69,8 @@ ActiveRecord::Schema.define(version: 2019_04_29_102536) do
   end
 
   create_table "subjects", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name"
+    t.integer "category"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
