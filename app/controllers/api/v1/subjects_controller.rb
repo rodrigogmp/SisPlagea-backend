@@ -13,14 +13,6 @@ class Api::V1::SubjectsController < Api::V1::BaseController
         @subjects = Subject.all
     end
 
-    def upload
-        if @subject.upload(params_upload)
-            render json: {message: "Arquivo adicionado com sucesso."}, status: 201
-        else
-            render json: {error: "Erro ao adicionar arquivo."}, status: :bad_request
-        end
-    end
-
     def materials
         @materials = @subject.attachments
     end
