@@ -6,7 +6,7 @@ Rails.application.routes.draw do
       resources :studants
       resources :projects do
         member do
-          post :link_studant
+          post :link_participant
         end
       end
       resources :users, only: [:create,:show]
