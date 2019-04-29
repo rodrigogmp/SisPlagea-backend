@@ -4,7 +4,11 @@ Rails.application.routes.draw do
     namespace :v1 do
       mount_devise_token_auth_for 'User', at: 'auth'
       resources :studants
-      resources :subjects
+      resources :subjects do
+        member do
+          post :upload
+        end
+      end
       resources :projects do
         member do
           post :link_participant

@@ -30,10 +30,10 @@ class Api::V1::ProjectsController < Api::V1::BaseController
             if @project.link_participant(params_link_participant)
                 render json: {message: "O aluno foi adicionado com sucesso ao projeto."}, status: 201 #ok
             else
-                render json: {message: "Erro ao adicionar aluno."}, status: :bad_request
+                render json: {error: "Erro ao adicionar aluno."}, status: :bad_request
             end
         else
-            render json: {message: "Esse aluno já foi adicionado ao projeto."}, status: :bad_request
+            render json: {error: "Esse aluno já foi adicionado ao projeto."}, status: :bad_request
         end
     end
 
