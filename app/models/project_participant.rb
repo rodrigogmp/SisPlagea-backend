@@ -5,6 +5,6 @@ class ProjectParticipant < ApplicationRecord
 
     #validations
     validates :studant, :project, presence: true
-
+    
     mount_uploader :file_to_upload, FileUploader
 end

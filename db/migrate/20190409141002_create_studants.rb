@@ -4,6 +4,7 @@ class CreateStudants < ActiveRecord::Migration[5.2]
       t.string :name
       t.integer :category
       t.string :photo
+      t.string :email
       t.datetime :deleted_at
       t.timestamps
     end

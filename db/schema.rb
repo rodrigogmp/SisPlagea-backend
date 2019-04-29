@@ -33,6 +33,9 @@ ActiveRecord::Schema.define(version: 2019_04_29_102536) do
   create_table "project_participants", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "studant_id"
     t.bigint "project_id"
+    t.integer "start_year"
+    t.integer "end_year"
+    t.string "file_to_upload"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["project_id"], name: "index_project_participants_on_project_id"
@@ -42,8 +45,6 @@ ActiveRecord::Schema.define(version: 2019_04_29_102536) do
   create_table "projects", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
     t.text "abstract"
-    t.integer "start_year"
-    t.integer "end_year"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.datetime "deleted_at"
@@ -58,8 +59,8 @@ ActiveRecord::Schema.define(version: 2019_04_29_102536) do
     t.string "name"
     t.integer "category"
     t.string "photo"
+    t.string "email"
     t.datetime "deleted_at"
-    t.integer "project_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

@@ -20,14 +20,12 @@ class Api::V1::StudantsController < Api::V1::BaseController
         end
     end
 
+    
+
     private
 
     def params_studant
-        params.permit(:name,:category,:photo,project_attributes:[:id,:name,:abstract,:start_year,:end_year])
-    end
-
-    def params_attachment
-        params.permit(:photo)
+        params.permit(:name,:category,:photo,:email)
     end
 
     def set_studant

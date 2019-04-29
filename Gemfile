@@ -22,6 +22,7 @@ gem 'devise_token_auth'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.5'
 gem 'carrierwave'
+gem 'rmagick'
 
 
 # Use ActiveStorage variant
