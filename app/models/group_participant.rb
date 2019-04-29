@@ -1,4 +1,4 @@
-class Participant < ApplicationRecord
+class GroupParticipant < ApplicationRecord
   belongs_to :studant
   belongs_to :study_group
 

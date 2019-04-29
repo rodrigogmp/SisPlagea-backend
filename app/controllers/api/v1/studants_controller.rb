@@ -23,7 +23,7 @@ class Api::V1::StudantsController < Api::V1::BaseController
     private
 
     def params_studant
-        params.permit(:name,:category,:photo,project_attributes:[:name,:abstract,:start_year,:end_year])
+        params.permit(:name,:category,:photo,project_attributes:[:id,:name,:abstract,:start_year,:end_year])
     end
 
     def params_attachment

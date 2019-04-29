@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_26_175845) do
+ActiveRecord::Schema.define(version: 2019_04_29_102536) do
 
   create_table "attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "studant_id"
@@ -21,13 +21,22 @@ ActiveRecord::Schema.define(version: 2019_04_26_175845) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "participants", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "group_participants", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "studant_id"
     t.bigint "study_group_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["studant_id"], name: "index_participants_on_studant_id"
-    t.index ["study_group_id"], name: "index_participants_on_study_group_id"
+    t.index ["studant_id"], name: "index_group_participants_on_studant_id"
+    t.index ["study_group_id"], name: "index_group_participants_on_study_group_id"
+  end
+
+  create_table "project_participants", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "studant_id"
+    t.bigint "project_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["project_id"], name: "index_project_participants_on_project_id"
+    t.index ["studant_id"], name: "index_project_participants_on_studant_id"
   end
 
   create_table "projects", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -93,6 +102,8 @@ ActiveRecord::Schema.define(version: 2019_04_26_175845) do
     t.index ["uid", "provider"], name: "index_users_on_uid_and_provider", unique: true
   end
 
-  add_foreign_key "participants", "studants"
-  add_foreign_key "participants", "study_groups"
+  add_foreign_key "group_participants", "studants"
+  add_foreign_key "group_participants", "study_groups"
+  add_foreign_key "project_participants", "projects"
+  add_foreign_key "project_participants", "studants"
 end

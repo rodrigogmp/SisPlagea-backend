@@ -2,15 +2,20 @@ class Studant < ApplicationRecord
   acts_as_paranoid
 
   #Associations
-  has_many :participants, dependent: :destroy
-  has_many :study_groups, through: :participants
+  has_many :project_participants, dependent: :destroy
+  has_many :projects, through: :project_participants
+
+  has_many :group_participants, dependent: :destroy
+  has_many :study_groups, through: :group_participants
+
+
   has_one :attachment
-  belongs_to :project
+  
 
   #Validations
   validates :name, :category, presence: true
 
-  accepts_nested_attributes_for :project
+  # accepts_nested_attributes_for :project
 
   mount_uploader :photo, ImageUploader
   
