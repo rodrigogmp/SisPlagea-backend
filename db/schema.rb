@@ -61,6 +61,7 @@ ActiveRecord::Schema.define(version: 2019_04_29_141959) do
     t.datetime "deleted_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["email"], name: "index_studants_on_email", unique: true
   end
 
   create_table "study_groups", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
