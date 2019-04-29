@@ -7,6 +7,7 @@ Rails.application.routes.draw do
       resources :projects do
         member do
           post :link_participant
+          put 'update_participant/:participant_id' => 'projects#update_participant'
         end
       end
       resources :users, only: [:create,:show]

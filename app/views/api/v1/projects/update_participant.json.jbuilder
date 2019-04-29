@@ -1,0 +1,1 @@
+json.partial! 'participant', locals: { participant: @participant }
