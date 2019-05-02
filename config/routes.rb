@@ -13,6 +13,7 @@ Rails.application.routes.draw do
       end
       resources :projects do
         member do
+          get :participants
           post :link_participant
           put 'update_participant/:participant_id' => 'projects#update_participant'
         end
