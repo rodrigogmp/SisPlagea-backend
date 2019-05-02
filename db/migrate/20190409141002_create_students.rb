@@ -1,6 +1,6 @@
-class CreateStudants < ActiveRecord::Migration[5.2]
+class CreateStudents < ActiveRecord::Migration[5.2]
   def change
-    create_table :studants do |t|
+    create_table :students do |t|
       t.string :name
       t.integer :category
       t.string :photo
@@ -8,7 +8,7 @@ class CreateStudants < ActiveRecord::Migration[5.2]
       t.datetime :deleted_at
       t.timestamps
     end
-    add_index :studants, :email,                unique: true
+    add_index :students, :email,                unique: true
 
   end
 end

@@ -1,6 +1,6 @@
 class GroupParticipant < ApplicationRecord
-  belongs_to :studant
+  belongs_to :student
   belongs_to :study_group
 
-  validates :studant, :study_group, presence: true
+  validates :student, :study_group, presence: true
 end

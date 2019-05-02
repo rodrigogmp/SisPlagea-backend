@@ -7,5 +7,5 @@
 #   Character.create(name: 'Luke', movie: movies.first)
     User.create!(email:"rmarafelli@gmail.com", password:123456)
     Project.create!(name:"Primeiro Projeto", abstract: "aaaaaaa")
-    Studant.create!(name:"rodrigo", email:"rodrigogmp@estudante.ufla.br", category: "scientific_research")
+    Student.create!(name:"rodrigo", email:"rodrigogmp@estudente.ufla.br", category: "scientific_research")
     Subject.create!(name:"Algoritmos em Grafos", category: "graduate")

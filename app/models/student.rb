@@ -1,4 +1,4 @@
-class Studant < ApplicationRecord
+class Student < ApplicationRecord
   acts_as_paranoid
 
   #Associations

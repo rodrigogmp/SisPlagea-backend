@@ -1,7 +1,7 @@
 class Api::V1::ProjectsController < Api::V1::BaseController
     before_action :authenticate_api_v1_user!
     before_action :set_project, only:[:show,:update,:link_participant,:update_participant]
-    before_action :set_studant, only:[:link_participant]
+    before_action :set_student, only:[:link_participant]
     before_action :set_participant, only:[:update_participant]
 
     def index
@@ -26,7 +26,7 @@ class Api::V1::ProjectsController < Api::V1::BaseController
     end
 
     def link_participant
-        unless @project.studant_already_subscribed?(@studant)
+        unless @project.student_already_subscribed?(@student)
             if @project.link_participant(params_link_participant)
                 render json: {message: "O aluno foi adicionado com sucesso ao projeto."}, status: 201 #ok
             else
@@ -59,12 +59,12 @@ class Api::V1::ProjectsController < Api::V1::BaseController
         @participant = ProjectParticipant.find(params[:participant_id])
     end
 
-    def set_studant
-        @studant = Studant.find(params[:studant_id])
+    def set_student
+        @student = Student.find(params[:student_id])
     end
 
     def params_link_participant
-        params.permit(:studant_id, :start_year, :end_year, :file_to_upload)
+        params.permit(:student_id, :start_year, :end_year, :file_to_upload)
     end
 
     def params_update_participant
