@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class StudantTest < ActiveSupport::TestCase
+class Api::V1::SubjectsControllerTest < ActionDispatch::IntegrationTest
   # test "the truth" do
   #   assert true
   # end

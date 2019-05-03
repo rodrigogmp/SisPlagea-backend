@@ -10,30 +10,39 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_26_175845) do
+ActiveRecord::Schema.define(version: 2019_04_29_141959) do
 
   create_table "attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.integer "studant_id"
     t.integer "subject_id"
     t.string "file_to_upload"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "participants", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "studant_id"
+  create_table "group_participants", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "student_id"
     t.bigint "study_group_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["studant_id"], name: "index_participants_on_studant_id"
-    t.index ["study_group_id"], name: "index_participants_on_study_group_id"
+    t.index ["student_id"], name: "index_group_participants_on_student_id"
+    t.index ["study_group_id"], name: "index_group_participants_on_study_group_id"
+  end
+
+  create_table "project_participants", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "student_id"
+    t.bigint "project_id"
+    t.integer "start_year"
+    t.integer "end_year"
+    t.string "file_to_upload"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["project_id"], name: "index_project_participants_on_project_id"
+    t.index ["student_id"], name: "index_project_participants_on_student_id"
   end
 
   create_table "projects", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
     t.text "abstract"
-    t.integer "start_year"
-    t.integer "end_year"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.datetime "deleted_at"
@@ -44,13 +53,15 @@ ActiveRecord::Schema.define(version: 2019_04_26_175845) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "studants", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "students", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
     t.integer "category"
+    t.string "photo"
+    t.string "email"
     t.datetime "deleted_at"
-    t.integer "project_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["email"], name: "index_students_on_email", unique: true
   end
 
   create_table "study_groups", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -59,6 +70,8 @@ ActiveRecord::Schema.define(version: 2019_04_26_175845) do
   end
 
   create_table "subjects", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name"
+    t.integer "category"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -85,12 +98,19 @@ ActiveRecord::Schema.define(version: 2019_04_26_175845) do
     t.text "tokens"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "sign_in_count", default: 0, null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string "current_sign_in_ip"
+    t.string "last_sign_in_ip"
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
     t.index ["uid", "provider"], name: "index_users_on_uid_and_provider", unique: true
   end
 
-  add_foreign_key "participants", "studants"
-  add_foreign_key "participants", "study_groups"
+  add_foreign_key "group_participants", "students"
+  add_foreign_key "group_participants", "study_groups"
+  add_foreign_key "project_participants", "projects"
+  add_foreign_key "project_participants", "students"
 end

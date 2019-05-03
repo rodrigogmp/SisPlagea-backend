@@ -1,0 +1,1 @@
+json.partial! 'attachment', locals: { attachment: @attachment }

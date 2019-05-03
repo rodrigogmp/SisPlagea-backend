@@ -1,1 +1,1 @@
-json.partial! 'profile', locals: { studant: @studant }
+json.partial! 'profile', locals: { student: @student }

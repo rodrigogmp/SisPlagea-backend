@@ -1,17 +1,10 @@
 class Attachment < ApplicationRecord
-    belongs_to :studant
     belongs_to :subject
-    belongs_to :publication
+    # belongs_to :publication
 
-    validates :file_to_upload, :category, presence: true
-    validate :check_id, on:[:create]
+    validates :file_to_upload, :subject, presence: true
     
     #Uploader
-    mount_uploader :file_to_upload, ImageUploader
+    mount_uploader :file_to_upload, FileUploader
 
-    def check_id
-        if self.studant_id.present? || self.subject_id.present? || self.publication_id.present?
-            return true
-        end
-    end
 end
