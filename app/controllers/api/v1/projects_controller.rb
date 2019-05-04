@@ -1,6 +1,6 @@
 class Api::V1::ProjectsController < Api::V1::BaseController
     before_action :authenticate_api_v1_user!
-    before_action :set_project, only:[:show,:update,:link_participant,:update_participant,:participants]
+    before_action :set_project, only:[:show,:update,:link_participant,:update_participant,:participants,:destroy]
     before_action :set_student, only:[:link_participant]
     before_action :set_participant, only:[:update_participant]
 
@@ -27,6 +27,12 @@ class Api::V1::ProjectsController < Api::V1::BaseController
 
     def participants
         @participants = @project.project_participants
+    end
+
+    def destroy
+        if @project.destroy
+            render json: {message: "Projeto excluido com sucesso."}
+        end
     end
 
 

@@ -19,6 +19,8 @@ gem 'paranoia'
 
 #Gem for authentication
 gem 'devise_token_auth'
+gem 'omniauth'
+gem 'rack-cors', :require => 'rack/cors'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.5'
 gem 'carrierwave'

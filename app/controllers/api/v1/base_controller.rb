@@ -1,12 +1,12 @@
 class Api::V1::BaseController < ApplicationController
-	include DeviseTokenAuth::Concerns::SetUserByToken
+	
 
   rescue_from ArgumentError do |exception|
 		render json: { errors: ["Erro no argumento passado para API."] }, status: :unprocessable_entity
 	end
 
 	rescue_from ActiveRecord::RecordNotFound do |exception|
-		render json: { errors: ["Resource not found."] }, status: :not_found
+		render json: { errors: ["Record not found."] }, status: :not_found
 	end
 
 	rescue_from ActionController::ParameterMissing do |exception|
