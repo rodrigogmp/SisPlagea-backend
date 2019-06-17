@@ -6,6 +6,12 @@ Rails.application.routes.draw do
       resources :students
       resources :attachments
       resources :publications
+      resources :study_groups do
+        member do
+          get :participants
+        end
+      end
+
       resources :subjects do
         member do
           post :upload
