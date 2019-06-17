@@ -80,6 +80,10 @@ ActiveRecord::Schema.define(version: 2019_04_29_141959) do
   create_table "subjects", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
     t.integer "category"
+    t.string "code"
+    t.integer "workload"
+    t.string "class_location"
+    t.string "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

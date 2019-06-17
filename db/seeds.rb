@@ -8,4 +8,4 @@
     User.create!(email:"rmarafelli@gmail.com", password:123456)
     Project.create!(name:"Primeiro Projeto", abstract: "aaaaaaa")
     Student.create!(name:"rodrigo", email:"rodrigogmp@estudente.ufla.br", category: "scientific_research")
-    Subject.create!(name:"Algoritmos em Grafos", category: "graduate")
+    Subject.create!(name:"Algoritmos em Grafos", category: "graduate", code: 'aaa123', workload: 64, class_location: "pv2-103", description: "descricao")

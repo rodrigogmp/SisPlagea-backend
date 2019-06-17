@@ -28,7 +28,7 @@ class Api::V1::SubjectsController < Api::V1::BaseController
     private
 
     def params_subject
-        params.permit(:name,:category)
+        params.permit(:name,:category,:code,:workload,:class_location,:description)
     end
 
     def params_upload
