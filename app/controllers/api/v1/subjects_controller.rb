@@ -1,6 +1,6 @@
 class Api::V1::SubjectsController < Api::V1::BaseController
     # before_action :authenticate_api_v1_user!
-    before_action :set_subject, only:[:upload,:materials]
+    before_action :set_subject, only:[:upload,:materials,:destroy]
 
     def create
         @subject = Subject.create(params_subject)
@@ -15,6 +15,14 @@ class Api::V1::SubjectsController < Api::V1::BaseController
 
     def materials
         @materials = @subject.attachments
+    end
+
+    def destroy
+        unless @subject.destroy
+            render json: {errors: @subject.errors.full_messages}, status: :bad_request
+        else
+            render json: {message: "Disciplina excluida com sucesso"}, status: :ok
+        end
     end
 
     private
