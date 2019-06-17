@@ -1,6 +1,6 @@
 class Api::V1::StudentsController < Api::V1::BaseController
-    include DeviseTokenAuth::Concerns::SetUserByToken
-    before_action :authenticate_api_v1_user!
+    # include DeviseTokenAuth::Concerns::SetUserByToken
+    # before_action :authenticate_api_v1_user!
     before_action :set_student, only:[:update,:show,:destroy]
 
     def create

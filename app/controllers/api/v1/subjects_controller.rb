@@ -1,5 +1,5 @@
 class Api::V1::SubjectsController < Api::V1::BaseController
-    before_action :authenticate_api_v1_user!
+    # before_action :authenticate_api_v1_user!
     before_action :set_subject, only:[:upload,:materials]
 
     def create
