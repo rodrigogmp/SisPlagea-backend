@@ -49,6 +49,14 @@ ActiveRecord::Schema.define(version: 2019_04_29_141959) do
   end
 
   create_table "publications", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "title"
+    t.string "journal"
+    t.integer "category"
+    t.integer "year"
+    t.integer "volume"
+    t.integer "pages"
+    t.string "authors"
+    t.string "file_to_upload"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
