@@ -9,6 +9,7 @@ Rails.application.routes.draw do
       resources :study_groups do
         member do
           get :participants
+          post :link_participant
         end
       end
 
