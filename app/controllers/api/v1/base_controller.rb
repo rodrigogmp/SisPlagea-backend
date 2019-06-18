@@ -1,6 +1,4 @@
 class Api::V1::BaseController < ApplicationController
-	
-
   rescue_from ArgumentError do |exception|
 		render json: { errors: ["Erro no argumento passado para API."] }, status: :unprocessable_entity
 	end

@@ -1,5 +1,5 @@
 class Api::V1::StudyGroupsController < Api::V1::BaseController
-  # before_action :authenticate_api_v1_user!
+  before_action :authenticate_api_v1_user!
   before_action :set_study_group, only:[:participants,:destroy,:show,:link_participant]
   before_action :set_student, only:[:link_participant]
 

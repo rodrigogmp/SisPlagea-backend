@@ -1,5 +1,6 @@
 class Api::V1::PublicationsController < Api::V1::BaseController
-before_action :set_publication, only:[:show,:destroy,:update]
+  before_action :authenticate_api_v1_user!
+  before_action :set_publication, only:[:show,:destroy,:update]
   def create
     @publication = Publication.new params_publication
 
