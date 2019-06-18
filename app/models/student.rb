@@ -10,10 +10,9 @@ class Student < ApplicationRecord
 
 
   has_one :attachment
-  
 
   #Validations
-  validates :name, :category, presence: true
+  validates :name, :category, :email, :registration, presence: true
 
   # accepts_nested_attributes_for :project
 

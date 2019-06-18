@@ -66,6 +66,9 @@ ActiveRecord::Schema.define(version: 2019_04_29_141959) do
     t.integer "category"
     t.string "photo"
     t.string "email"
+    t.string "registration"
+    t.string "lattes_link"
+    t.string "relevant_informations"
     t.datetime "deleted_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

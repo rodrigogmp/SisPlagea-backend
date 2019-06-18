@@ -1,6 +1,6 @@
 class Api::V1::SubjectsController < Api::V1::BaseController
     # before_action :authenticate_api_v1_user!
-    before_action :set_subject, only:[:upload,:materials,:destroy,:show]
+    before_action :set_subject, only:[:upload,:materials,:destroy,:show,:update]
 
     def create
         @subject = Subject.create(params_subject)
@@ -26,6 +26,12 @@ class Api::V1::SubjectsController < Api::V1::BaseController
     end
 
     def show
+    end
+
+    def update
+        unless @subject.update params_subject
+            render json: {errors: @subject.errors.full_messages}, status: :bad_request
+        end
     end
 
     private
