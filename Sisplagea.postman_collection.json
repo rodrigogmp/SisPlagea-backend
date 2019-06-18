@@ -1,0 +1,1864 @@
+{
+	"info": {
+		"_postman_id": "3c305a9a-6efe-4936-aa82-f078016640d7",
+		"name": "Sisplagea",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "bf018ce5-c6b0-4fad-8397-d9c88726e1ca",
+								"exec": [
+									"if (responseCode.code === 200)",
+									"{",
+									"    postman.setEnvironmentVariable(\"access-token\", postman.getResponseHeader('access-token'));",
+									"    postman.setEnvironmentVariable(\"client\", postman.getResponseHeader('client'));",
+									"    postman.setEnvironmentVariable(\"uid\", postman.getResponseHeader('uid'));",
+									"    postman.setEnvironmentVariable(\"resource-type\", postman.getResponseHeader('resource-type'));",
+									"}",
+									"",
+									"var responseJSON;",
+									"",
+									"try { responseJSON = JSON.parse(responseBody); }",
+									"catch (e) { }",
+									"",
+									"",
+									"if ('id' in responseJSON)",
+									"{",
+									"    postman.setEnvironmentVariable((postman.getResponseHeader('resource-type') + \"_id\"), responseJSON.id);",
+									"}",
+									"",
+									"tests[\"Response time is less than 200ms\"] = responseTime < 200;"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"email\": \"rmarafelli@gmail.com\",\n\t\"password\": \"123456\"\n}"
+						},
+						"url": {
+							"raw": "{{dev_host}}/v1/auth/sign_in",
+							"host": [
+								"{{dev_host}}"
+							],
+							"path": [
+								"v1",
+								"auth",
+								"sign_in"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "client",
+								"value": "{{client}}",
+								"type": "text"
+							},
+							{
+								"key": "access_token",
+								"value": "{{access-token}}",
+								"type": "text"
+							},
+							{
+								"key": "uid",
+								"value": "{{uid}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "password",
+									"value": "123456",
+									"type": "text"
+								},
+								{
+									"key": "photo",
+									"type": "file",
+									"src": ""
+								},
+								{
+									"key": "phone_number",
+									"value": "+55 37 3221-8952",
+									"type": "text"
+								},
+								{
+									"key": "room",
+									"value": "21",
+									"type": "text"
+								},
+								{
+									"key": "formation",
+									"value": "UFLA",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{dev_host}}/v1/users",
+							"host": [
+								"{{dev_host}}"
+							],
+							"path": [
+								"v1",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Show",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": ""
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Logout",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "client",
+								"value": "{{client}}",
+								"type": "text"
+							},
+							{
+								"key": "access_token",
+								"value": "{{access-token}}",
+								"type": "text"
+							},
+							{
+								"key": "uid",
+								"value": "{{uid}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{dev_host}}/v1/auth/sign_out",
+							"host": [
+								"{{dev_host}}"
+							],
+							"path": [
+								"v1",
+								"auth",
+								"sign_out"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Studant",
+			"item": [
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "client",
+								"value": "{{client}}",
+								"type": "text"
+							},
+							{
+								"key": "uid",
+								"value": "{{uid}}",
+								"type": "text"
+							},
+							{
+								"key": "access_token",
+								"value": "{{access-token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "rodrigo",
+									"type": "text"
+								},
+								{
+									"key": "category",
+									"value": "scientific_research",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "marafellirodrigo1@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "photo",
+									"type": "file",
+									"src": ""
+								},
+								{
+									"key": "registration",
+									"value": "123456",
+									"type": "text"
+								},
+								{
+									"key": "lattes_link",
+									"value": "http://google.com",
+									"type": "text"
+								},
+								{
+									"key": "relevant_informations",
+									"value": "umasInformacoes",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{dev_host}}/v1/students",
+							"host": [
+								"{{dev_host}}"
+							],
+							"path": [
+								"v1",
+								"students"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "client",
+								"value": "{{client}}",
+								"type": "text"
+							},
+							{
+								"key": "uid",
+								"value": "{{uid}}",
+								"type": "text"
+							},
+							{
+								"key": "access_token",
+								"value": "{{access-token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Rodrigo Guimarães",
+									"type": "text"
+								},
+								{
+									"key": "category",
+									"value": "masters_degree",
+									"type": "text"
+								},
+								{
+									"key": "photo",
+									"type": "file",
+									"src": ""
+								},
+								{
+									"key": "email",
+									"value": "rodrigogmp@estudate.ufla.br",
+									"type": "text"
+								},
+								{
+									"key": "registration",
+									"value": "123456",
+									"type": "text"
+								},
+								{
+									"key": "lattes_link",
+									"value": "hahahahaha",
+									"type": "text"
+								},
+								{
+									"key": "relevant_information",
+									"value": "ehuahueauhehauhuea",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{dev_host}}/v1/students/2",
+							"host": [
+								"{{dev_host}}"
+							],
+							"path": [
+								"v1",
+								"students",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Show",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "client",
+								"value": "{{client}}",
+								"type": "text"
+							},
+							{
+								"key": "uid",
+								"value": "{{uid}}",
+								"type": "text"
+							},
+							{
+								"key": "access_token",
+								"value": "{{access-token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{dev_host}}/v1/students/2",
+							"host": [
+								"{{dev_host}}"
+							],
+							"path": [
+								"v1",
+								"students",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "client",
+								"value": "{{client}}",
+								"type": "text"
+							},
+							{
+								"key": "uid",
+								"value": "{{uid}}",
+								"type": "text"
+							},
+							{
+								"key": "access_token",
+								"value": "{{access-token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{dev_host}}/v1/students/4",
+							"host": [
+								"{{dev_host}}"
+							],
+							"path": [
+								"v1",
+								"students",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "index",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "client",
+								"value": "{{client}}",
+								"type": "text"
+							},
+							{
+								"key": "uid",
+								"value": "{{uid}}",
+								"type": "text"
+							},
+							{
+								"key": "access-token",
+								"value": "{{access-token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{dev_host}}/v1/students",
+							"host": [
+								"{{dev_host}}"
+							],
+							"path": [
+								"v1",
+								"students"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Project",
+			"item": [
+				{
+					"name": "Participant",
+					"item": [
+						{
+							"name": "Link participant",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "client",
+										"type": "text",
+										"value": "{{client}}"
+									},
+									{
+										"key": "uid",
+										"type": "text",
+										"value": "{{uid}}"
+									},
+									{
+										"key": "access_token",
+										"type": "text",
+										"value": "{{access-token}}"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "student_id",
+											"value": "2",
+											"type": "text"
+										},
+										{
+											"key": "start_year",
+											"value": "2015",
+											"type": "text"
+										},
+										{
+											"key": "end_year",
+											"value": "",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{dev_host}}/v1/projects/1/link_participant",
+									"host": [
+										"{{dev_host}}"
+									],
+									"path": [
+										"v1",
+										"projects",
+										"1",
+										"link_participant"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update ",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "client",
+										"value": "{{client}}",
+										"type": "text"
+									},
+									{
+										"key": "uid",
+										"value": "{{uid}}",
+										"type": "text"
+									},
+									{
+										"key": "access_token",
+										"value": "{{access-token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "start_year",
+											"value": "2011",
+											"type": "text"
+										},
+										{
+											"key": "end_year",
+											"value": "2017",
+											"type": "text"
+										},
+										{
+											"key": "file_to_upload",
+											"type": "file",
+											"src": ""
+										}
+									]
+								},
+								"url": {
+									"raw": "{{dev_host}}/v1/projects/1/update_participant/2",
+									"host": [
+										"{{dev_host}}"
+									],
+									"path": [
+										"v1",
+										"projects",
+										"1",
+										"update_participant",
+										"2"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Show",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "access_token",
+								"value": "{{access-token}}",
+								"type": "text"
+							},
+							{
+								"key": "client",
+								"value": "{{client}}",
+								"type": "text"
+							},
+							{
+								"key": "uid",
+								"value": "{{uid}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{dev_host}}/v1/projects/1",
+							"host": [
+								"{{dev_host}}"
+							],
+							"path": [
+								"v1",
+								"projects",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Destroy",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "access_token",
+								"type": "text",
+								"value": "{{access-token}}"
+							},
+							{
+								"key": "client",
+								"type": "text",
+								"value": "{{client}}"
+							},
+							{
+								"key": "uid",
+								"type": "text",
+								"value": "{{uid}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{dev_host}}/v1/projects/20",
+							"host": [
+								"{{dev_host}}"
+							],
+							"path": [
+								"v1",
+								"projects",
+								"20"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Index",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "access_token",
+								"value": "{{access-token}}",
+								"type": "text"
+							},
+							{
+								"key": "client",
+								"value": "{{client}}",
+								"type": "text"
+							},
+							{
+								"key": "uid",
+								"value": "{{uid}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{dev_host}}/v1/projects/",
+							"host": [
+								"{{dev_host}}"
+							],
+							"path": [
+								"v1",
+								"projects",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "access_token",
+								"value": "{{access-token}}",
+								"type": "text"
+							},
+							{
+								"key": "client",
+								"value": "{{client}}",
+								"type": "text"
+							},
+							{
+								"key": "uid",
+								"value": "{{uid}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "nomedeumprojeto",
+									"type": "text"
+								},
+								{
+									"key": "abstract",
+									"value": "abstractdeumprojeto",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{dev_host}}/v1/projects",
+							"host": [
+								"{{dev_host}}"
+							],
+							"path": [
+								"v1",
+								"projects"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "client",
+								"value": "{{client}}",
+								"type": "text"
+							},
+							{
+								"key": "access_token",
+								"value": "{{access-token}}",
+								"type": "text"
+							},
+							{
+								"key": "uid",
+								"value": "{{uid}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "novoNovo",
+									"type": "text"
+								},
+								{
+									"key": "abstract",
+									"value": "novoAbstract",
+									"type": "text"
+								},
+								{
+									"key": "start_year",
+									"value": "2010",
+									"type": "text"
+								},
+								{
+									"key": "end_year",
+									"value": "2014",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{dev_host}}/v1/projects/1",
+							"host": [
+								"{{dev_host}}"
+							],
+							"path": [
+								"v1",
+								"projects",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List participants",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "client",
+								"value": "{{client}}",
+								"type": "text"
+							},
+							{
+								"key": "uid",
+								"value": "{{uid}}",
+								"type": "text"
+							},
+							{
+								"key": "access_token",
+								"value": "{{access-token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{dev_host}}/v1/projects/1/participants",
+							"host": [
+								"{{dev_host}}"
+							],
+							"path": [
+								"v1",
+								"projects",
+								"1",
+								"participants"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Subject",
+			"item": [
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "client",
+								"value": "{{client}}",
+								"type": "text"
+							},
+							{
+								"key": "access_token",
+								"value": "{{access-token}}",
+								"type": "text"
+							},
+							{
+								"key": "uid",
+								"value": "{{uid}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Compiladores",
+									"type": "text"
+								},
+								{
+									"key": "category",
+									"value": "graduate",
+									"type": "text"
+								},
+								{
+									"key": "code",
+									"value": "codigo123",
+									"type": "text"
+								},
+								{
+									"key": "workload",
+									"value": "64",
+									"type": "text"
+								},
+								{
+									"key": "class_location",
+									"value": "localicazao123",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "descricao",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{dev_host}}/v1/subjects",
+							"host": [
+								"{{dev_host}}"
+							],
+							"path": [
+								"v1",
+								"subjects"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "index",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "client",
+								"value": "{{client}}",
+								"type": "text"
+							},
+							{
+								"key": "access_token",
+								"value": "{{access-token}}",
+								"type": "text"
+							},
+							{
+								"key": "uid",
+								"value": "{{uid}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{dev_host}}/v1/subjects",
+							"host": [
+								"{{dev_host}}"
+							],
+							"path": [
+								"v1",
+								"subjects"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List materials",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "client",
+								"value": "{{client}}",
+								"type": "text"
+							},
+							{
+								"key": "uid",
+								"value": "{{uid}}",
+								"type": "text"
+							},
+							{
+								"key": "access_token",
+								"value": "{{access-token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{dev_host}}/v1/subjects/1/materials",
+							"host": [
+								"{{dev_host}}"
+							],
+							"path": [
+								"v1",
+								"subjects",
+								"1",
+								"materials"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "client",
+								"value": "{{client}}",
+								"type": "text"
+							},
+							{
+								"key": "access_token",
+								"value": "{{access-token}}",
+								"type": "text"
+							},
+							{
+								"key": "uid",
+								"value": "{{uid}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{dev_host}}/v1/subjects/1",
+							"host": [
+								"{{dev_host}}"
+							],
+							"path": [
+								"v1",
+								"subjects",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "client",
+								"value": "{{client}}",
+								"type": "text"
+							},
+							{
+								"key": "uid",
+								"value": "{{uid}}",
+								"type": "text"
+							},
+							{
+								"key": "access_token",
+								"value": "{{access-token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "lfa",
+									"type": "text"
+								},
+								{
+									"key": "category",
+									"value": "postgraduate",
+									"type": "text"
+								},
+								{
+									"key": "code",
+									"value": "umcodigo124",
+									"type": "text"
+								},
+								{
+									"key": "class_location",
+									"value": "pv2",
+									"type": "text"
+								},
+								{
+									"key": "workload",
+									"value": "64",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "umaDescricao",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{dev_host}}/v1/subjects/2",
+							"host": [
+								"{{dev_host}}"
+							],
+							"path": [
+								"v1",
+								"subjects",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Detalhes",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "client",
+								"value": "{{client}}",
+								"type": "text"
+							},
+							{
+								"key": "access_token",
+								"value": "{{access-token}}",
+								"type": "text"
+							},
+							{
+								"key": "uid",
+								"value": "{{uid}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{dev_host}}/v1/subjects/2",
+							"host": [
+								"{{dev_host}}"
+							],
+							"path": [
+								"v1",
+								"subjects",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Attachments",
+			"item": [
+				{
+					"name": "index",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "client",
+								"value": "{{client}}",
+								"type": "text"
+							},
+							{
+								"key": "uid",
+								"value": "{{uid}}",
+								"type": "text"
+							},
+							{
+								"key": "access_token",
+								"value": "{{access-token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{dev_host}}/v1/attachments",
+							"host": [
+								"{{dev_host}}"
+							],
+							"path": [
+								"v1",
+								"attachments"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "client",
+								"value": "{{client}}",
+								"type": "text"
+							},
+							{
+								"key": "access_token",
+								"value": "{{access-token}}",
+								"type": "text"
+							},
+							{
+								"key": "uid",
+								"value": "{{uid}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "subject_id",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "file_to_upload",
+									"type": "file",
+									"src": ""
+								}
+							]
+						},
+						"url": {
+							"raw": "{{dev_host}}/v1/attachments",
+							"host": [
+								"{{dev_host}}"
+							],
+							"path": [
+								"v1",
+								"attachments"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "client",
+								"value": "{{client}}",
+								"type": "text"
+							},
+							{
+								"key": "uid",
+								"value": "{{uid}}",
+								"type": "text"
+							},
+							{
+								"key": "access_token",
+								"value": "{{access-token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{dev_host}}/v1/attachments/2",
+							"host": [
+								"{{dev_host}}"
+							],
+							"path": [
+								"v1",
+								"attachments",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Detalhes",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "client",
+								"value": "{{client}}",
+								"type": "text"
+							},
+							{
+								"key": "uid",
+								"value": "{{uid}}",
+								"type": "text"
+							},
+							{
+								"key": "access_token",
+								"value": "{{access-token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{dev_host}}/v1/attachments/1",
+							"host": [
+								"{{dev_host}}"
+							],
+							"path": [
+								"v1",
+								"attachments",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Publications",
+			"item": [
+				{
+					"name": "create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "client",
+								"value": "{{client}}",
+								"type": "text"
+							},
+							{
+								"key": "access_token",
+								"value": "{{access-token}}",
+								"type": "text"
+							},
+							{
+								"key": "uid",
+								"value": "{{uid}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "title",
+									"value": "titulo",
+									"type": "text"
+								},
+								{
+									"key": "journal",
+									"value": "journal",
+									"type": "text"
+								},
+								{
+									"key": "category",
+									"value": "periodic",
+									"type": "text"
+								},
+								{
+									"key": "year",
+									"value": "2010",
+									"type": "text"
+								},
+								{
+									"key": "volume",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "pages",
+									"value": "10",
+									"type": "text"
+								},
+								{
+									"key": "authors",
+									"value": "Rodrigo",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{dev_host}}/v1/publications",
+							"host": [
+								"{{dev_host}}"
+							],
+							"path": [
+								"v1",
+								"publications"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "client",
+								"value": "{{client}}",
+								"type": "text"
+							},
+							{
+								"key": "uid",
+								"value": "{{uid}}",
+								"type": "text"
+							},
+							{
+								"key": "access_token",
+								"value": "{{access-token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{dev_host}}/v1/publications/1",
+							"host": [
+								"{{dev_host}}"
+							],
+							"path": [
+								"v1",
+								"publications",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "client",
+								"value": "{{client}}",
+								"type": "text"
+							},
+							{
+								"key": "uid",
+								"value": "{{uid}}",
+								"type": "text"
+							},
+							{
+								"key": "access_token",
+								"value": "{{access-token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "title",
+									"value": "aa",
+									"type": "text"
+								},
+								{
+									"key": "journal",
+									"value": "bb",
+									"type": "text"
+								},
+								{
+									"key": "category",
+									"value": "abstract",
+									"type": "text"
+								},
+								{
+									"key": "year",
+									"value": "2015",
+									"type": "text"
+								},
+								{
+									"key": "volume",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "pages",
+									"value": "10",
+									"type": "text"
+								},
+								{
+									"key": "authors",
+									"value": "vinicius",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{dev_host}}/v1/publications/2",
+							"host": [
+								"{{dev_host}}"
+							],
+							"path": [
+								"v1",
+								"publications",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Detalhes",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "client",
+								"value": "{{client}}",
+								"type": "text"
+							},
+							{
+								"key": "uid",
+								"value": "{{uid}}",
+								"type": "text"
+							},
+							{
+								"key": "access_token",
+								"value": "{{access-token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{dev_host}}/v1/publications/2",
+							"host": [
+								"{{dev_host}}"
+							],
+							"path": [
+								"v1",
+								"publications",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Index",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "client",
+								"value": "{{client}}",
+								"type": "text"
+							},
+							{
+								"key": "access_token",
+								"value": "{{access-token}}",
+								"type": "text"
+							},
+							{
+								"key": "uid",
+								"value": "{{uid}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{dev_host}}/v1/publications",
+							"host": [
+								"{{dev_host}}"
+							],
+							"path": [
+								"v1",
+								"publications"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "StudyGroups",
+			"item": [
+				{
+					"name": "create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "client",
+								"value": "{{client}}",
+								"type": "text"
+							},
+							{
+								"key": "uid",
+								"value": "{{uid}}",
+								"type": "text"
+							},
+							{
+								"key": "access_token",
+								"value": "{{access-token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "nomeDeumGrupo",
+									"type": "text"
+								},
+								{
+									"key": "create_year",
+									"value": "2010",
+									"type": "text"
+								},
+								{
+									"key": "leaders",
+									"value": "Rodrigo e outros",
+									"type": "text"
+								},
+								{
+									"key": "predominant_area",
+									"value": "inteligencia artificial",
+									"type": "text"
+								},
+								{
+									"key": "objective",
+									"value": "estudar ia",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{dev_host}}/v1/study_groups",
+							"host": [
+								"{{dev_host}}"
+							],
+							"path": [
+								"v1",
+								"study_groups"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "participants",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "client",
+								"value": "{{client}}",
+								"type": "text"
+							},
+							{
+								"key": "uid",
+								"value": "{{uid}}",
+								"type": "text"
+							},
+							{
+								"key": "access_token",
+								"value": "{{access-token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{dev_host}}/v1/study_groups/1/participants",
+							"host": [
+								"{{dev_host}}"
+							],
+							"path": [
+								"v1",
+								"study_groups",
+								"1",
+								"participants"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "link_participant",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "client",
+								"value": "{{client}}",
+								"type": "text"
+							},
+							{
+								"key": "access_token",
+								"value": "{{access-token}}",
+								"type": "text"
+							},
+							{
+								"key": "uid",
+								"value": "{{uid}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{dev_host}}/v1/study_groups/1/link_participant",
+							"host": [
+								"{{dev_host}}"
+							],
+							"path": [
+								"v1",
+								"study_groups",
+								"1",
+								"link_participant"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Index",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "client",
+								"value": "{{client}}",
+								"type": "text"
+							},
+							{
+								"key": "access_token",
+								"value": "{{access-token}}",
+								"type": "text"
+							},
+							{
+								"key": "uid",
+								"value": "{{uid}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{dev_host}}/v1/study_groups",
+							"host": [
+								"{{dev_host}}"
+							],
+							"path": [
+								"v1",
+								"study_groups"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Detalhes",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "client",
+								"value": "{{client}}",
+								"type": "text"
+							},
+							{
+								"key": "access_token",
+								"value": "{{access-token}}",
+								"type": "text"
+							},
+							{
+								"key": "uid",
+								"value": "{{uid}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{dev_host}}/v1/study_groups/1",
+							"host": [
+								"{{dev_host}}"
+							],
+							"path": [
+								"v1",
+								"study_groups",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "client",
+								"value": "{{client}}",
+								"type": "text"
+							},
+							{
+								"key": "uid",
+								"value": "{{uid}}",
+								"type": "text"
+							},
+							{
+								"key": "access_token",
+								"value": "{{access-token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{dev_host}}/v1/study_groups/1",
+							"host": [
+								"{{dev_host}}"
+							],
+							"path": [
+								"v1",
+								"study_groups",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
