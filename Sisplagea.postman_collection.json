@@ -297,11 +297,6 @@
 							"mode": "formdata",
 							"formdata": [
 								{
-									"key": "name",
-									"value": "Rodrigo Guimarães",
-									"type": "text"
-								},
-								{
 									"key": "category",
 									"value": "masters_degree",
 									"type": "text"
@@ -313,7 +308,7 @@
 								},
 								{
 									"key": "email",
-									"value": "rodrigogmp@estudate.ufla.br",
+									"value": "rodrigogmp5@estudate.ufla.br",
 									"type": "text"
 								},
 								{
@@ -327,21 +322,21 @@
 									"type": "text"
 								},
 								{
-									"key": "relevant_information",
+									"key": "relevant_informations",
 									"value": "ehuahueauhehauhuea",
 									"type": "text"
 								}
 							]
 						},
 						"url": {
-							"raw": "{{dev_host}}/v1/students/2",
+							"raw": "{{dev_host}}/v1/students/1",
 							"host": [
 								"{{dev_host}}"
 							],
 							"path": [
 								"v1",
 								"students",
-								"2"
+								"1"
 							]
 						}
 					},
@@ -373,14 +368,14 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "{{dev_host}}/v1/students/2",
+							"raw": "{{dev_host}}/v1/students/1",
 							"host": [
 								"{{dev_host}}"
 							],
 							"path": [
 								"v1",
 								"students",
-								"2"
+								"1"
 							]
 						}
 					},
