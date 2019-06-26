@@ -56,6 +56,7 @@ test:
 production:
   <<: *default
   adapter: mysql2
-  database: db/production.mysql2
+  # database: db/production.mysql2
+  database: Sisplagea-backend_production
   # username: Sisplagea-backend
   # password: <%= ENV['SISPLAGEA-BACKEND_DATABASE_PASSWORD'] %>
