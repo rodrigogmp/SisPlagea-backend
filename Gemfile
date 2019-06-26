@@ -11,6 +11,8 @@ gem 'mysql2', '>= 0.4.4', '< 0.6.0'
 gem 'puma', '~> 3.11'
 
 gem 'paranoia'
+gem 'rack-timeout', '0.3.2'
+gem 'sass-rails'
 
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
@@ -54,6 +56,7 @@ end
 
 gem 'rails_12factor', group: :production
 gem 'mysql2', '>= 0.4.4', '< 0.6.0', group: :production
+gem 'bundler', group: :production
 
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
