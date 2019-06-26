@@ -35,6 +35,7 @@ gem 'rmagick'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
+gem 'uglifier', '>= 1.0.3', require: 'uglifier'
 
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
 # gem 'rack-cors'
@@ -50,6 +51,9 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
+
+gem 'rails_12factor', group: :production
+gem 'mysql2', '>= 0.4.4', '< 0.6.0', group: :production
 
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

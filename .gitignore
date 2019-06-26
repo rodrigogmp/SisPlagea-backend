@@ -33,7 +33,7 @@
 # Ignore scanner work.
 .scannerwork
 
-/config/database.yml
+
 
 # Ignore image uploads in public folder (don't overwrite production uploads with development uploads)
 /public/uploads
