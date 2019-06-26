@@ -49,6 +49,14 @@ ActiveRecord::Schema.define(version: 2019_04_29_141959) do
   end
 
   create_table "publications", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "title"
+    t.string "journal"
+    t.integer "category"
+    t.integer "year"
+    t.integer "volume"
+    t.integer "pages"
+    t.string "authors"
+    t.string "file_to_upload"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -58,6 +66,9 @@ ActiveRecord::Schema.define(version: 2019_04_29_141959) do
     t.integer "category"
     t.string "photo"
     t.string "email"
+    t.string "registration"
+    t.string "lattes_link"
+    t.string "relevant_informations"
     t.datetime "deleted_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -65,6 +76,11 @@ ActiveRecord::Schema.define(version: 2019_04_29_141959) do
   end
 
   create_table "study_groups", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name"
+    t.integer "create_year"
+    t.string "leaders"
+    t.string "predominant_area"
+    t.string "objective"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -72,6 +88,10 @@ ActiveRecord::Schema.define(version: 2019_04_29_141959) do
   create_table "subjects", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
     t.integer "category"
+    t.string "code"
+    t.integer "workload"
+    t.string "class_location"
+    t.string "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

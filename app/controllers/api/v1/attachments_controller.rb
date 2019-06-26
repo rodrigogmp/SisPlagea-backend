@@ -10,7 +10,6 @@ class Api::V1::AttachmentsController < Api::V1::BaseController
     end
 
     def create
-        byebug
         @attachment = Attachment.create(params_attachment)
         unless @attachment.save
             render json: {errors: @attachment.errors.full_messages}, status: :bad_request
