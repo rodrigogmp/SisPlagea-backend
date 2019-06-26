@@ -21,6 +21,8 @@ Devise.setup do |config|
     # config.mailer_sender = 'please-change-me-at-config-initializers-devise@example.com'
 
     #  config.mailer_sender = 'no-reply@' + Rails.application.secrets.domain_name
+    # config.mailer_sender = 'no-reply@' + Rails.application.secrets.domain_name
+
 
   
     # Configure the class responsible to send e-mails.
