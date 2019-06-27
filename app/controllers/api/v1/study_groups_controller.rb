@@ -1,6 +1,6 @@
 class Api::V1::StudyGroupsController < Api::V1::BaseController
   before_action :authenticate_api_v1_user!
-  before_action :set_study_group, only:[:participants,:destroy,:show,:link_participant]
+  before_action :set_study_group, only:[:participants,:destroy,:show,:link_participant,:update]
   before_action :set_student, only:[:link_participant]
 
   def create
@@ -36,6 +36,13 @@ class Api::V1::StudyGroupsController < Api::V1::BaseController
       else
           render json: {message: "Grupo excluido com sucesso"}, status: :ok
       end
+  end
+
+  def update
+    @study_group.update params_study_group
+    unless @study_group.save
+      render json: {errors: @study_group.errors.full_messages}, status: :bad_request
+    end
   end
 
   def show

@@ -446,11 +446,15 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "{{dev_host}}/v1/students",
+							"raw": "https://sisplagea-api.herokuapp.com/api/v1/students",
+							"protocol": "https",
 							"host": [
-								"{{dev_host}}"
+								"sisplagea-api",
+								"herokuapp",
+								"com"
 							],
 							"path": [
+								"api",
 								"v1",
 								"students"
 							]
@@ -1838,6 +1842,76 @@
 						"body": {
 							"mode": "raw",
 							"raw": ""
+						},
+						"url": {
+							"raw": "{{dev_host}}/v1/study_groups/1",
+							"host": [
+								"{{dev_host}}"
+							],
+							"path": [
+								"v1",
+								"study_groups",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "client",
+								"value": "{{client}}",
+								"type": "text"
+							},
+							{
+								"key": "uid",
+								"value": "{{uid}}",
+								"type": "text"
+							},
+							{
+								"key": "access_token",
+								"value": "{{access-token}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Grupo de Estudos em Segurança Computacional",
+									"type": "text"
+								},
+								{
+									"key": "create_year",
+									"value": "2019",
+									"type": "text"
+								},
+								{
+									"key": "leaders",
+									"value": "Joaquim Uchôa",
+									"type": "text"
+								},
+								{
+									"key": "predominant_area",
+									"value": "Segurança",
+									"type": "text"
+								},
+								{
+									"key": "objective",
+									"value": "Estudar conceitos aprofundados em segurança computacional",
+									"type": "text"
+								}
+							]
 						},
 						"url": {
 							"raw": "{{dev_host}}/v1/study_groups/1",

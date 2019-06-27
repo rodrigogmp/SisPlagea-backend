@@ -1,0 +1,1 @@
+json.partial! 'study_group', locals: { study_group: @study_group }
