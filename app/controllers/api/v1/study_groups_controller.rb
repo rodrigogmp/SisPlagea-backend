@@ -60,7 +60,7 @@ class Api::V1::StudyGroupsController < Api::V1::BaseController
   end
 
   def params_link_participant
-    params.permit(:student_id, :study_group_id)
+    params.permit(:student_id)
   end
 
   def set_student
