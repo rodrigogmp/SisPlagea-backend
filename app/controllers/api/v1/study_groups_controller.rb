@@ -43,6 +43,7 @@ class Api::V1::StudyGroupsController < Api::V1::BaseController
     unless @study_group.save
       render json: {errors: @study_group.errors.full_messages}, status: :bad_request
     end
+    
   end
 
   def show
