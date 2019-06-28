@@ -3,7 +3,6 @@ class Api::V1::SubjectsController < Api::V1::BaseController
     before_action :set_subject, only:[:upload,:materials,:destroy,:show,:update]
 
     def create
-        byebug
         @subject = Subject.create(params_subject)
         unless @subject.save
             render json: {errors: @subject.errors.full_messages}, status: :bad_request

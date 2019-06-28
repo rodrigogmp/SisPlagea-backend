@@ -1,8 +1,5 @@
 json.participants @participants.each do |participant|
-    json.project_participant_id participant.id
-    json.student_id participant.student_id
-    json.project_id participant.project_id
-    json.start_year participant.start_year
-    json.end_year participant.end_year
-    json.file participant.file_to_upload
+    json.id participant[0]
+    json.student_id participant[1]
+    json.name participant[2]
 end

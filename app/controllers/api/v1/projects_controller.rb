@@ -2,7 +2,7 @@ class Api::V1::ProjectsController < Api::V1::BaseController
   before_action :authenticate_api_v1_user!
   before_action :set_project, only:[:show,:update,:link_participant,:update_participant,:participants,:destroy, :unlink_participant]
   before_action :set_student, only:[:link_participant]
-  before_action :set_participant, only:[:update_participant, :unlink_participant]
+  before_action :set_participant, only:[:update_participant]
 
   def index
     @projects = Project.all
@@ -26,7 +26,7 @@ class Api::V1::ProjectsController < Api::V1::BaseController
   end
 
   def participants
-    @participants = @project.project_participants
+    @participants = @project.project_participants.joins(:student).pluck(:id,:student_id,:name)
   end
 
   def destroy
@@ -50,7 +50,7 @@ class Api::V1::ProjectsController < Api::V1::BaseController
 
   def unlink_participant
     byebug
-    @participant = ProjectParticipant.find(params[:participant_id])
+    @participant = ProjectParticipant.find_by(student_id: params[:student_id])
     unless @participant.destroy
       render json: {error: "Erro ao desvincular aluno do projeto."}, status: :bad_request
     else
@@ -77,7 +77,7 @@ class Api::V1::ProjectsController < Api::V1::BaseController
   end
 
   def set_participant
-    @participant = ProjectParticipant.find(params[:participant_id])
+    @participant = ProjectParticipant.find_by(student_id: params[:student_id])
   end
 
   def set_student
