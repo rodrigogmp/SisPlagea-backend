@@ -512,14 +512,14 @@
 									]
 								},
 								"url": {
-									"raw": "{{dev_host}}/v1/projects/1/link_participant",
+									"raw": "{{prod_host}}/v1/projects//link_participant",
 									"host": [
-										"{{dev_host}}"
+										"{{prod_host}}"
 									],
 									"path": [
 										"v1",
 										"projects",
-										"1",
+										"",
 										"link_participant"
 									]
 								}
@@ -1269,6 +1269,11 @@
 									"key": "file_to_upload",
 									"type": "file",
 									"src": ""
+								},
+								{
+									"key": "name",
+									"value": "algumNome",
+									"type": "text"
 								}
 							]
 						},
