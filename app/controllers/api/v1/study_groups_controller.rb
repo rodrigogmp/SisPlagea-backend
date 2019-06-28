@@ -31,7 +31,6 @@ class Api::V1::StudyGroupsController < Api::V1::BaseController
   end
 
   def unlink_participant
-    byebug
     @participant = GroupParticipant.find_by(student_id: params[:student_id])
     unless @participant.destroy
       render json: {error: "Erro ao desvincular aluno do grupo."}, status: :bad_request
