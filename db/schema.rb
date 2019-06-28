@@ -92,6 +92,7 @@ ActiveRecord::Schema.define(version: 2019_04_29_141959) do
     t.integer "workload"
     t.string "class_location"
     t.string "description"
+    t.string "summary"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

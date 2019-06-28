@@ -3,6 +3,7 @@ class Api::V1::SubjectsController < Api::V1::BaseController
     before_action :set_subject, only:[:upload,:materials,:destroy,:show,:update]
 
     def create
+        byebug
         @subject = Subject.create(params_subject)
         unless @subject.save
             render json: {errors: @subject.errors.full_messages}, status: :bad_request
@@ -37,7 +38,7 @@ class Api::V1::SubjectsController < Api::V1::BaseController
     private
 
     def params_subject
-        params.permit(:name,:category,:code,:workload,:class_location,:description)
+        params.permit(:name,:category,:code,:workload,:class_location,:description,:summary)
     end
 
     def params_upload
