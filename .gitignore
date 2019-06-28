@@ -36,7 +36,7 @@
 
 
 # Ignore image uploads in public folder (don't overwrite production uploads with development uploads)
-# /public/uploads
+/public/uploads
 
 #Gemfile
 Gemfile.lock
