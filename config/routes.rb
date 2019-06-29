@@ -32,7 +32,13 @@ Rails.application.routes.draw do
           put 'update_participant/:participant_id' => 'projects#update_participant'
         end
       end
-      resources :users, only: [:create,:show]
+      resources :users ,only: [:create,:show] do
+        collection do
+          put :update
+          post :recover_password
+          patch :change_password
+        end
+      end
     end
   end
   
