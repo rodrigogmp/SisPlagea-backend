@@ -446,7 +446,7 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "https://sisplagea-api.herokuapp.com/api/v1/students",
+							"raw": "https://sisplagea-api.herokuapp.com/api/v1/students/",
 							"protocol": "https",
 							"host": [
 								"sisplagea-api",
@@ -456,7 +456,8 @@
 							"path": [
 								"api",
 								"v1",
-								"students"
+								"students",
+								""
 							]
 						}
 					},
@@ -568,7 +569,7 @@
 									]
 								},
 								"url": {
-									"raw": "{{dev_host}}/v1/projects/1/update_participant/3",
+									"raw": "{{dev_host}}/v1/projects/1/update_participant/1",
 									"host": [
 										"{{dev_host}}"
 									],
@@ -577,7 +578,7 @@
 										"projects",
 										"1",
 										"update_participant",
-										"3"
+										"1"
 									]
 								}
 							},
@@ -1262,7 +1263,7 @@
 							"formdata": [
 								{
 									"key": "subject_id",
-									"value": "2",
+									"value": "1",
 									"type": "text"
 								},
 								{
@@ -1512,7 +1513,7 @@
 							"formdata": [
 								{
 									"key": "title",
-									"value": "aa",
+									"value": "depois do update",
 									"type": "text"
 								},
 								{
@@ -1544,18 +1545,23 @@
 									"key": "authors",
 									"value": "vinicius",
 									"type": "text"
+								},
+								{
+									"key": "file_to_upload",
+									"type": "file",
+									"src": ""
 								}
 							]
 						},
 						"url": {
-							"raw": "{{dev_host}}/v1/publications/2",
+							"raw": "{{dev_host}}/v1/publications/4",
 							"host": [
 								"{{dev_host}}"
 							],
 							"path": [
 								"v1",
 								"publications",
-								"2"
+								"4"
 							]
 						}
 					},
@@ -1633,6 +1639,51 @@
 							"path": [
 								"v1",
 								"publications"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create from bibtex",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "client",
+								"value": "{{client}}",
+								"type": "text"
+							},
+							{
+								"key": "uid",
+								"value": "{{uid}}",
+								"type": "text"
+							},
+							{
+								"key": "access_token",
+								"value": "{{access-token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": ""
+								}
+							]
+						},
+						"url": {
+							"raw": "{{dev_host}}/v1/publications/create_from_bibtex",
+							"host": [
+								"{{dev_host}}"
+							],
+							"path": [
+								"v1",
+								"publications",
+								"create_from_bibtex"
 							]
 						}
 					},
