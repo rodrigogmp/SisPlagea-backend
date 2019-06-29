@@ -9,12 +9,14 @@ class Api::V1::PublicationsController < Api::V1::BaseController
   end
 
   def create_from_bibtex
+    byebug
     @bibtex = Bibtex.new params_create_from_bibtex
     unless @bibtex.save
       render json: {errors: "Erro ao fazer upload de arquivo bibtex"}, status: :bad_request
     else
       length = @bibtex.file.path.length
-      path = '.'+@bibtex.file.path[31,length]
+      # path = '.'+@bibtex.file.path[31,length] #development
+      path = '.'+@bibtex.file.path[4,length] #production
       b = BibTeX.open(path)
       if b.first.type.to_s == 'conference'
         @publication = Publication.new(title: b.first.title.value,
