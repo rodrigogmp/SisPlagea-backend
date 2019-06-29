@@ -1,6 +1,6 @@
 class Api::V1::PublicationsController < Api::V1::BaseController
   before_action :authenticate_api_v1_user!
-  before_action :set_publication, only:[:show,:destroy,:update]
+  before_action :set_publication, only:[:show,:destroy,:update,:create]
   def create
     @publication = Publication.new params_publication
 
@@ -8,9 +8,19 @@ class Api::V1::PublicationsController < Api::V1::BaseController
             render json: {errors: @publication.errors.full_messages}, status: :bad_request
         end
   end
-
+  # require 'bibtex'
   def create_from_bibtex
+    require 'bibtex'
+    @bibtex = Bibtex.new params_create_from_bibtex
     
+    unless @bibtex.save
+      render json: {errors: "Erro ao fazer upload de arquivo bibtex"}, status: :bad_request
+    else
+      length = @bibtex.file.path.length
+      path = @bibtex.file.path[31,length]
+      b = BibTeX.open(`.#{path}`)
+    end
+
   end
 
   def index
@@ -41,5 +51,9 @@ class Api::V1::PublicationsController < Api::V1::BaseController
 
     def set_publication
       @publication = Publication.find(params[:id])
+    end
+
+    def params_create_from_bibtex
+      params.permit(:file)
     end
 end

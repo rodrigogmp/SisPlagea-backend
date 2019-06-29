@@ -26,7 +26,7 @@ class Api::V1::ProjectsController < Api::V1::BaseController
   end
 
   def participants
-    @participants = @project.project_participants.joins(:student).pluck(:id,:student_id,:name)
+    @participants = @project.project_participants
   end
 
   def destroy
@@ -76,7 +76,7 @@ class Api::V1::ProjectsController < Api::V1::BaseController
   end
 
   def set_participant
-    @participant = ProjectParticipant.find_by(student_id: params[:student_id])
+    @participant = ProjectParticipant.find(params[:participant_id])
   end
 
   def set_student
