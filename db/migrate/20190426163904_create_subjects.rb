@@ -7,7 +7,6 @@ class CreateSubjects < ActiveRecord::Migration[5.2]
       t.integer :workload
       t.string :class_location
       t.string :description
-      t.string :summary
       t.timestamps
     end
   end
