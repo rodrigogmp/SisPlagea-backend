@@ -42,6 +42,7 @@ class Api::V1::PublicationsController < Api::V1::BaseController
           end
         end
       end
+      @bibtex.destroy
       unless @publication.save
         render json: {errors: @publication.errors.full_messages}, status: :bad_request
       end
