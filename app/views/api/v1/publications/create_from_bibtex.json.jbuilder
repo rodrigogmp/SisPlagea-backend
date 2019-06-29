@@ -1,1 +1,1 @@
-json.file @bibtex.file
+json.partial! 'publication', locals: { publication: @publication }
