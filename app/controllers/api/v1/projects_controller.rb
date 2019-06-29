@@ -49,7 +49,8 @@ class Api::V1::ProjectsController < Api::V1::BaseController
   end
 
   def unlink_participant
-    @participant = ProjectParticipant.find_by(student_id: params[:student_id])
+    byebug
+    @participant = ProjectParticipant.find(params[:participant_id])
     unless @participant.destroy
       render json: {error: "Erro ao desvincular aluno do projeto."}, status: :bad_request
     else

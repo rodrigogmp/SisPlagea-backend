@@ -10,7 +10,7 @@ Rails.application.routes.draw do
         member do
           get :participants
           post 'link_participant' => 'study_groups#link_participant'
-          delete 'unlink_participant/:student_id' => 'study_groups#unlink_participant'
+          delete 'unlink_participant/:participant_id' => 'study_groups#unlink_participant'
         end
       end
 
@@ -24,8 +24,8 @@ Rails.application.routes.draw do
         member do
           get :participants
           post 'link_participant' => 'projects#link_participant'
-          delete 'unlink_participant/:student_id' => 'projects#unlink_participant'
-          put 'update_participant/:student_id' => 'projects#update_participant'
+          delete 'unlink_participant/:participant_id' => 'projects#unlink_participant'
+          put 'update_participant/:participant_id' => 'projects#update_participant'
         end
       end
       resources :users, only: [:create,:show]
