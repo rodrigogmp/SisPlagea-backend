@@ -9,7 +9,6 @@ class Api::V1::PublicationsController < Api::V1::BaseController
   end
 
   def create_from_bibtex
-    byebug
     @bibtex = Bibtex.new params_create_from_bibtex
     unless @bibtex.save
       render json: {errors: "Erro ao fazer upload de arquivo bibtex"}, status: :bad_request
