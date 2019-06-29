@@ -9,6 +9,10 @@ class Api::V1::PublicationsController < Api::V1::BaseController
         end
   end
 
+  def create_from_bibtex
+    
+  end
+
   def index
     @publications = Publication.all
   end
