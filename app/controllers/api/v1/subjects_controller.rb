@@ -40,10 +40,6 @@ class Api::V1::SubjectsController < Api::V1::BaseController
         params.permit(:name,:category,:code,:workload,:class_location,:description,:summary)
     end
 
-    def params_upload
-        params.permit(:file_to_upload)
-    end
-
     def set_subject
         @subject = Subject.find(params[:id])
     end
