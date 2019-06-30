@@ -61,7 +61,6 @@ Rails.application.configure do
     :port => 587,
     :domain => "sisplagea-api.herokuapp.com",
     :user_name => "rmarafelli@gmail.com",
-    :password => "TIBA*2680652",
     :authentication => 'plain',
     :enable_starttls_auto => true
   }

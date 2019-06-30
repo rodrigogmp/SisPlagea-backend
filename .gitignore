@@ -20,7 +20,7 @@
 
 # Ignore bundler config.
 /.bundle
-
+/config/database.yml
 # Ignore all logfiles and tempfiles.
 /log/*
 /tmp/*
@@ -36,7 +36,7 @@
 
 
 # Ignore image uploads in public folder (don't overwrite production uploads with development uploads)
-/public/uploads
+# /public/uploads
 
 #Gemfile
 Gemfile.lock
