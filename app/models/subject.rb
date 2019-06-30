@@ -3,4 +3,5 @@ class Subject < ApplicationRecord
 
     enum category:[:graduate,:postgraduate]
     validates :name, :category, :code, :workload, :class_location, :description, presence: true
+    mount_uploader :summary, FileUploader
 end

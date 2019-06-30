@@ -1,7 +1,7 @@
 class Api::V1::BaseController < ApplicationController
-  rescue_from ArgumentError do |exception|
-		render json: { errors: ["Erro no argumento passado para API."] }, status: :unprocessable_entity
-	end
+  # rescue_from ArgumentError do |exception|
+	# 	render json: { errors: ["Erro no argumento passado para API."] }, status: :unprocessable_entity
+	# end
 
 	rescue_from ActiveRecord::RecordNotFound do |exception|
 		render json: { errors: ["Record not found."] }, status: :not_found

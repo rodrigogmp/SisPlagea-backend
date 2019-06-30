@@ -234,7 +234,7 @@
 								},
 								{
 									"key": "email",
-									"value": "marafellirodrigo1@gmail.com",
+									"value": "marafellirodrigo123345@gmail.com",
 									"type": "text"
 								},
 								{
@@ -260,9 +260,9 @@
 							]
 						},
 						"url": {
-							"raw": "{{dev_host}}/v1/students",
+							"raw": "{{prod_host}}/v1/students",
 							"host": [
-								"{{dev_host}}"
+								"{{prod_host}}"
 							],
 							"path": [
 								"v1",
@@ -446,7 +446,7 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "https://sisplagea-api.herokuapp.com/api/v1/students",
+							"raw": "https://sisplagea-api.herokuapp.com/api/v1/students/",
 							"protocol": "https",
 							"host": [
 								"sisplagea-api",
@@ -456,7 +456,8 @@
 							"path": [
 								"api",
 								"v1",
-								"students"
+								"students",
+								""
 							]
 						}
 					},
@@ -512,14 +513,14 @@
 									]
 								},
 								"url": {
-									"raw": "{{dev_host}}/v1/projects/1/link_participant",
+									"raw": "{{prod_host}}/v1/projects//link_participant",
 									"host": [
-										"{{dev_host}}"
+										"{{prod_host}}"
 									],
 									"path": [
 										"v1",
 										"projects",
-										"1",
+										"",
 										"link_participant"
 									]
 								}
@@ -557,7 +558,7 @@
 										},
 										{
 											"key": "end_year",
-											"value": "2017",
+											"value": "2019",
 											"type": "text"
 										},
 										{
@@ -568,7 +569,7 @@
 									]
 								},
 								"url": {
-									"raw": "{{dev_host}}/v1/projects/1/update_participant/2",
+									"raw": "{{dev_host}}/v1/projects/1/update_participant/1",
 									"host": [
 										"{{dev_host}}"
 									],
@@ -577,7 +578,48 @@
 										"projects",
 										"1",
 										"update_participant",
-										"2"
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "unlink_participant",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "client",
+										"value": "{{client}}",
+										"type": "text"
+									},
+									{
+										"key": "uid",
+										"value": "{{uid}}",
+										"type": "text"
+									},
+									{
+										"key": "access_token",
+										"value": "{{access-token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{dev_host}}/v1/projects/1/unlink_participant/1",
+									"host": [
+										"{{dev_host}}"
+									],
+									"path": [
+										"v1",
+										"projects",
+										"1",
+										"unlink_participant",
+										"1"
 									]
 								}
 							},
@@ -1221,13 +1263,18 @@
 							"formdata": [
 								{
 									"key": "subject_id",
-									"value": "2",
+									"value": "1",
 									"type": "text"
 								},
 								{
 									"key": "file_to_upload",
 									"type": "file",
 									"src": ""
+								},
+								{
+									"key": "name",
+									"value": "algumNome",
+									"type": "text"
 								}
 							]
 						},
@@ -1466,7 +1513,7 @@
 							"formdata": [
 								{
 									"key": "title",
-									"value": "aa",
+									"value": "depois do update",
 									"type": "text"
 								},
 								{
@@ -1498,18 +1545,23 @@
 									"key": "authors",
 									"value": "vinicius",
 									"type": "text"
+								},
+								{
+									"key": "file_to_upload",
+									"type": "file",
+									"src": ""
 								}
 							]
 						},
 						"url": {
-							"raw": "{{dev_host}}/v1/publications/2",
+							"raw": "{{dev_host}}/v1/publications/4",
 							"host": [
 								"{{dev_host}}"
 							],
 							"path": [
 								"v1",
 								"publications",
-								"2"
+								"4"
 							]
 						}
 					},
@@ -1591,12 +1643,151 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "create from bibtex",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "client",
+								"value": "{{client}}",
+								"type": "text"
+							},
+							{
+								"key": "uid",
+								"value": "{{uid}}",
+								"type": "text"
+							},
+							{
+								"key": "access_token",
+								"value": "{{access-token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": ""
+								}
+							]
+						},
+						"url": {
+							"raw": "{{dev_host}}/v1/publications/create_from_bibtex",
+							"host": [
+								"{{dev_host}}"
+							],
+							"path": [
+								"v1",
+								"publications",
+								"create_from_bibtex"
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		},
 		{
 			"name": "StudyGroups",
 			"item": [
+				{
+					"name": "Participants",
+					"item": [
+						{
+							"name": "link_participant",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "client",
+										"value": "{{client}}",
+										"type": "text"
+									},
+									{
+										"key": "access_token",
+										"value": "{{access-token}}",
+										"type": "text"
+									},
+									{
+										"key": "uid",
+										"value": "{{uid}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "student_id",
+											"value": "1",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{dev_host}}/v1/study_groups/1/link_participant/",
+									"host": [
+										"{{dev_host}}"
+									],
+									"path": [
+										"v1",
+										"study_groups",
+										"1",
+										"link_participant",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "unlink_participant",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "client",
+										"value": "{{client}}",
+										"type": "text"
+									},
+									{
+										"key": "uid",
+										"value": "{{uid}}",
+										"type": "text"
+									},
+									{
+										"key": "access-token",
+										"value": "{{access-token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{dev_host}}/v1/study_groups/1/unlink_participant/1",
+									"host": [
+										"{{dev_host}}"
+									],
+									"path": [
+										"v1",
+										"study_groups",
+										"1",
+										"unlink_participant",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
 				{
 					"name": "create",
 					"request": {
@@ -1696,46 +1887,6 @@
 								"study_groups",
 								"1",
 								"participants"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "link_participant",
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "client",
-								"value": "{{client}}",
-								"type": "text"
-							},
-							{
-								"key": "access_token",
-								"value": "{{access-token}}",
-								"type": "text"
-							},
-							{
-								"key": "uid",
-								"value": "{{uid}}",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
-						"url": {
-							"raw": "{{dev_host}}/v1/study_groups/1/link_participant",
-							"host": [
-								"{{dev_host}}"
-							],
-							"path": [
-								"v1",
-								"study_groups",
-								"1",
-								"link_participant"
 							]
 						}
 					},

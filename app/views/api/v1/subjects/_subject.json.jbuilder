@@ -5,3 +5,4 @@ json.code @subject.code
 json.workload @subject.workload
 json.class_location @subject.class_location
 json.description @subject.description
+json.summary @subject.summary

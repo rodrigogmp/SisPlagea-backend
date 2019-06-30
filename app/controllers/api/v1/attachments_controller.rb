@@ -27,7 +27,7 @@ class Api::V1::AttachmentsController < Api::V1::BaseController
     private
 
     def params_attachment
-        params.permit(:subject_id, :file_to_upload)
+        params.permit(:subject_id, :file_to_upload, :name)
     end
 
     def set_attachment
