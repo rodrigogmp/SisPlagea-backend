@@ -53,7 +53,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"email\": \"rmarafelli@gmail.com\",\n\t\"password\": \"123456\"\n}"
+							"raw": "{\n\t\"email\": \"rodrigogmp@computacao.ufla.br\",\n\t\"password\": \"123456\"\n}"
 						},
 						"url": {
 							"raw": "{{dev_host}}/v1/auth/sign_in",
@@ -116,6 +116,11 @@
 								{
 									"key": "formation",
 									"value": "UFLA",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "rodrigogmp@computacao.ufla.br",
 									"type": "text"
 								}
 							]
@@ -182,6 +187,140 @@
 								"v1",
 								"auth",
 								"sign_out"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Recover Password",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"email\": \"rodrigogmp@computacao.ufla.br\"\n}"
+						},
+						"url": {
+							"raw": "{{dev_host}}/v1/users/recover_password",
+							"host": [
+								"{{dev_host}}"
+							],
+							"path": [
+								"v1",
+								"users",
+								"recover_password"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "change password",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "client",
+								"value": "{{client}}",
+								"type": "text"
+							},
+							{
+								"key": "uid",
+								"value": "{{uid}}",
+								"type": "text"
+							},
+							{
+								"key": "access-token",
+								"value": "{{access-token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "new_password",
+									"value": "123456",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{dev_host}}/v1/users/change_password",
+							"host": [
+								"{{dev_host}}"
+							],
+							"path": [
+								"v1",
+								"users",
+								"change_password"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "client",
+								"value": "{{client}}",
+								"type": "text"
+							},
+							{
+								"key": "uid",
+								"value": "{{uid}}",
+								"type": "text"
+							},
+							{
+								"key": "access-token",
+								"value": "{{access-token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "photo",
+									"type": "file",
+									"src": ""
+								},
+								{
+									"key": "room",
+									"value": "dcc19",
+									"type": "text"
+								},
+								{
+									"key": "formation",
+									"value": "formacao",
+									"type": "text"
+								},
+								{
+									"key": "phone_number",
+									"value": "32218952",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{dev_host}}/v1/users",
+							"host": [
+								"{{dev_host}}"
+							],
+							"path": [
+								"v1",
+								"users"
 							]
 						}
 					},
@@ -2074,6 +2213,125 @@
 								"study_groups",
 								"1"
 							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Contacts",
+			"item": [
+				{
+					"name": "create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{dev_host}}/v1/contacts",
+							"host": [
+								"{{dev_host}}"
+							],
+							"path": [
+								"v1",
+								"contacts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "index",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "client",
+								"value": "{{client}}",
+								"type": "text"
+							},
+							{
+								"key": "access-token",
+								"value": "{{access-token}}",
+								"type": "text"
+							},
+							{
+								"key": "uid",
+								"value": "{{uid}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{dev_host}}/v1/contacts",
+							"host": [
+								"{{dev_host}}"
+							],
+							"path": [
+								"v1",
+								"contacts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "detalhes",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "client",
+								"value": "{{client}}",
+								"type": "text"
+							},
+							{
+								"key": "uid",
+								"value": "{{uid}}",
+								"type": "text"
+							},
+							{
+								"key": "access-token",
+								"value": "{{access-token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{dev_host}}/v1/contacts/1",
+							"host": [
+								"{{dev_host}}"
+							],
+							"path": [
+								"v1",
+								"contacts",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": ""
 						}
 					},
 					"response": []
