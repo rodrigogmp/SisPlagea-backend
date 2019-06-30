@@ -30,18 +30,35 @@ Rails.application.configure do
   #   openssl_verify_mode: "none",
   # }
 
+
+  # ///////////////////// development //////////////////
+  # config.action_mailer.smtp_settings = {
+  #   :address => "smtp.gmail.com",
+  #   :port => 587,
+  #   :domain => "localhost",
+  #   :user_name => "rmarafelli@gmail.com",
+  #   :password => "TIBA*2680652",
+  #   :authentication => 'plain',
+  #   :enable_starttls_auto => true
+  # }
+
+  # config.action_mailer.delivery_method = :smtp
+  # config.action_mailer.raise_delivery_errors = true
+  # config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+
+  # /////////// production ///////////////
   config.action_mailer.smtp_settings = {
     :address => "smtp.gmail.com",
     :port => 587,
-    :domain => "localhost",
+    :domain => "sisplagea-api.herokuapp.com",
     :user_name => "rmarafelli@gmail.com",
     :authentication => 'plain',
     :enable_starttls_auto => true
-}
+  }
 
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.raise_delivery_errors = true
-  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+  config.action_mailer.default_url_options = { host: 'sisplagea-api.herokuapp.com' }
 
   # Enable/disable caching. By default caching is disabled.
   # Run rails dev:cache to toggle caching.
