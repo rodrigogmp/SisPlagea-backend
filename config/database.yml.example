@@ -51,4 +51,4 @@ production:
   <<: *default
   database: Sisplagea-backend_production
   username: rodrigo
-  password: <%= ENV['WITSOCCER-BACKEND_DATABASE_PASSWORD'] %>
+  password: <%= ENV['SISPLAGEA-API-BACKEND_DATABASE_PASSWORD'] %>
